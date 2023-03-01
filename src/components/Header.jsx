@@ -6,7 +6,7 @@ export function Header(){
 return(
     <header className={styles.header}>
     <img src={logo} alt="logotipo" />
-    <h1>Commented Network </h1>
+    <h1> Commented Network </h1>
     </header>
  );
 }
