@@ -49,7 +49,9 @@ export function App() {
        <Header />
        
       <div className={styles.wrapper}>
+        
          <Sidebar />
+
          <main>
           {posts.map(posts =>{
 
@@ -58,11 +60,11 @@ export function App() {
               author = {posts.author}
               content = {posts.content}
               publishedAt = {posts.publishedAt}
-           
              />
            )
           })}
        </main>
+
        </div>
     </div>
     )

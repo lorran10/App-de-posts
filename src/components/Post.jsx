@@ -7,32 +7,33 @@ import styles from './Post.module.css';
 import { useState } from 'react';
 
 
-
-
 export function Post( {author, publishedAt, content}) {
   const [comments, setComments] = useState([
     'Post muinto bom hein ?'
   ])
+
+const [newCommentText, setCommentsText] = useState('')
+
   const publishedDateFormatted = format(publishedAt,"d 'de' LLLL 'ás' HH:mm'h'", {
     locale:ptBR,
   })
+
 const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
  locale: ptBR,
  addSuffix: true,
 })
+
 function handleCreateNewComment(){
   event.preventDefault()
-   const newCommentText = event.target.comment.value
+
    setComments([...comments, newCommentText]); 
-   event.target.comment.value ='';
-
-
-
+   
 }
 
    
   return(
    <article className={styles.posts}>
+
     <header>
         <div className={styles.author}>
           <Avatar  src={author.avatarUrl} />
@@ -44,9 +45,7 @@ function handleCreateNewComment(){
         <time title= {publishedDateFormatted} dateTime={publishedAt.toISOString()}>
             { publishedDateRelativeToNow }
         </time>
-    
     </header>
-
 
     <div className={styles.content}>
       {content.map(line => {
@@ -61,10 +60,11 @@ function handleCreateNewComment(){
 
     <form onSubmit ={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong> 
+
         <textarea
         name="comment"
          placeholder="Deixe seu comentario"
-         />
+        />
 
         <footer>
         <button type="submit">Publicar</button>
@@ -76,8 +76,6 @@ function handleCreateNewComment(){
         return <Comment content={comment} />
        })}
       
-  
-
       </div>
    </article>
 
