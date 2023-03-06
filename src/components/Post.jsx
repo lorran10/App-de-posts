@@ -26,7 +26,8 @@ const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
 function handleCreateNewComment(){
   event.preventDefault()
 
-   setComments([...comments, newCommentText]); 
+   setComments([...comments, newCommentText]);
+   setNewCommentText('') 
    
 }
 function handleNewChange(){
@@ -67,6 +68,7 @@ function handleNewChange(){
         <textarea
         name="comment"
          placeholder="Deixe seu comentario"
+         value={newCommentText}
          onChange={handleNewChange}
         />
 
